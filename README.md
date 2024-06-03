@@ -4,6 +4,8 @@
 
 This project is a music recommender system that suggests songs based on similarity measures. The system uses a precomputed similarity matrix to find songs that are similar to a given track. The dataset includes information about users, artists, tracks, and playlists.
 
+    * Due to GitHub's file size limits, these files are not fully visible on the GitHub repository. You can download the complete files by cloning the repository and accessing them locally. *
+
 ## Features
 
 - Recommends songs based on a given track.
@@ -32,7 +34,7 @@ To set up the recommender system on your local machine, follow these steps:
     - `similarity.pkl`: The similarity matrix.
     - `df.pkl`: The dataset with user, artist, track, and playlist information.
 
-    Due to GitHub's file size limits, these files are not fully visible on the GitHub repository. You can download the complete files by cloning the repository and accessing them locally.
+
 
 4. **Load the data files in your script:**
 

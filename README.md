@@ -4,7 +4,7 @@
 
 This project is a music recommender system that suggests songs based on similarity measures. The system uses a precomputed similarity matrix to find songs that are similar to a given track. The dataset includes information about users, artists, tracks, and playlists.
 
-    * Due to GitHub's file size limits, these files are not fully visible on the GitHub repository. You can download the complete files by cloning the repository and accessing them locally. *
+*Due to GitHub's file size limits, these files are not fully visible on the GitHub repository. You can download the complete files by cloning the repository and accessing them locally.*
 
 ## Features
 

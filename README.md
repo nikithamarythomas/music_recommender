@@ -79,7 +79,6 @@ Due to the file size limit on GitHub, the similarity.pkl and df.pkl files are ma
 ```sh
 git lfs install
 git lfs track "similarity.pkl"
-git lfs track "df.pkl"
 ```
 
 # License

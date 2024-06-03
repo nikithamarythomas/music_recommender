@@ -69,3 +69,13 @@ def recommendation(song_name):
 
 # Example usage
 print(recommendation('Glee'))
+
+
+# NOTE
+
+Due to the file size limit on GitHub, the similarity.pkl and df.pkl files are managed using Git Large File Storage (LFS). Make sure to install Git LFS and track these files with it. Here's how:
+
+```sh
+git lfs install
+git lfs track "similarity.pkl"
+git lfs track "df.pkl"

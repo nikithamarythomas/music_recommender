@@ -1,91 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Recommender System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        pre {
-            background: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ddd;
-            overflow-x: auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Music Recommender System</h1>
+# Music Recommender System
 
-        <h2>Overview</h2>
-        <p>This project is a music recommender system that suggests songs based on similarity measures. The system uses a precomputed similarity matrix to find songs that are similar to a given track. The dataset includes information about users, artists, tracks, and playlists.</p>
+## Overview
 
-        <h2>Features</h2>
-        <ul>
-            <li>Recommends songs based on a given track.</li>
-            <li>Uses a precomputed similarity matrix for fast recommendations.</li>
-            <li>Handles missing values in the dataset.</li>
-        </ul>
+This project is a music recommender system that suggests songs based on similarity measures. The system uses a precomputed similarity matrix to find songs that are similar to a given track. The dataset includes information about users, artists, tracks, and playlists.
 
-        <h2>Setup</h2>
-        <p>To set up the recommender system on your local machine, follow these steps:</p>
-        <ol>
-            <li>
-                Clone the repository:
-                <pre><code>git clone https://github.com/nikithamarythomas/musicrec.git
-cd musicrec</code></pre>
-            </li>
-            <li>
-                Install the required libraries:
-                <pre><code>pip install -r requirements.txt</code></pre>
-            </li>
-            <li>
-                Download the precomputed similarity matrix and data files:
-                <ul>
-                    <li><code>similarity.pkl</code>: The similarity matrix.</li>
-                    <li><code>df.pkl</code>: The dataset with user, artist, track, and playlist information.</li>
-                </ul>
-                <p>Due to GitHub's file size limits, these files are not fully visible on the GitHub repository. You can download the complete files by cloning the repository and accessing them locally.</p>
-            </li>
-            <li>
-                Load the data files in your script:
-                <pre><code>import pickle
+## Features
 
-with open('similarity.pkl', 'rb') as file:
-    similarity = pickle.load(file)
+- Recommends songs based on a given track.
+- Uses a precomputed similarity matrix for fast recommendations.
+- Handles missing values in the dataset.
 
-with open('df.pkl', 'rb') as file:
-    df = pickle.load(file)</code></pre>
-            </li>
-        </ol>
+## Setup
 
-        <h2>Usage</h2>
-        <p>Here is an example of how to use the recommender system:</p>
-        <pre><code>import pickle
+To set up the recommender system on your local machine, follow these steps:
+
+1. **Clone the repository:**
+
+    ```sh
+    git clone https://github.com/nikithamarythomas/musicrec.git
+    cd musicrec
+    ```
+
+2. **Install the required libraries:**
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+3. **Download the precomputed similarity matrix and data files:**
+
+    - `similarity.pkl`: The similarity matrix.
+    - `df.pkl`: The dataset with user, artist, track, and playlist information.
+
+    Due to GitHub's file size limits, these files are not fully visible on the GitHub repository. You can download the complete files by cloning the repository and accessing them locally.
+
+4. **Load the data files in your script:**
+
+    ```python
+    import pickle
+
+    with open('similarity.pkl', 'rb') as file:
+        similarity = pickle.load(file)
+
+    with open('df.pkl', 'rb') as file:
+        df = pickle.load(file)
+    ```
+
+## Usage
+
+Here is an example of how to use the recommender system:
+
+```python
+import pickle
 
 # Load the similarity matrix and data frame
 with open('similarity.pkl', 'rb') as file:
     similarity = pickle.load(file)
 
 with open('df.pkl', 'rb') as file:
-    df = pickle.load(file)</code></pre>
-    </div>
-</body>
-</html>
+    df = pickle.load(file)
+
+# Function to recommend songs based on a given song
+def recommendation(song_name):
+    idx = df[df['song'] == song_name].index[0]
+    distances = sorted(list(enumerate(similarity[idx])), reverse=True, key=lambda x: x[1])
+    recommended_songs = [df.iloc[i[0]]['song'] for i in distances[1:11]]
+    return recommended_songs
+
+# Example usage
+print(recommendation('Glee'))

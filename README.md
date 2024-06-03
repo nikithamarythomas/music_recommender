@@ -18,7 +18,7 @@ To set up the recommender system on your local machine, follow these steps:
 
     ```sh
     git clone https://github.com/nikithamarythomas/music_recommender.git
-    cd musicrec
+    cd music_recommnder
     ```
 
 2. **Install the required libraries:**

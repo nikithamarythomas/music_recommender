@@ -76,7 +76,7 @@ print(recommendation('Glee'))
 
 # NOTE
 
-Due to the file size limit on GitHub, the similarity.pkl and df.pkl files are managed using Git Large File Storage (LFS). Make sure to install Git LFS and track these files with it. Here's how:
+Due to the file size limit on GitHub, the similarity.pkl is managed using Git Large File Storage (LFS). Make sure to install Git LFS and track the file with it. Here's how:
 
 ```sh
 git lfs install
